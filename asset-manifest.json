@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/personal/static/css/main.e036cca6.css",
+    "main.js": "/personal/static/js/main.66c0832d.js",
+    "static/js/787.a6e0be23.chunk.js": "/personal/static/js/787.a6e0be23.chunk.js",
+    "static/media/Najash.png": "/personal/static/media/Najash.c54a53e5232cc801c4b9.png",
+    "index.html": "/personal/index.html",
+    "main.e036cca6.css.map": "/personal/static/css/main.e036cca6.css.map",
+    "main.66c0832d.js.map": "/personal/static/js/main.66c0832d.js.map",
+    "787.a6e0be23.chunk.js.map": "/personal/static/js/787.a6e0be23.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e036cca6.css",
+    "static/js/main.66c0832d.js"
+  ]
+}
