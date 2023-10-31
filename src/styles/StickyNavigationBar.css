@@ -1,0 +1,26 @@
+.sticky-nav {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;  /* To keep it above other elements */
+}
+
+.sticky-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Horizontal layout */
+    justify-content: center;
+}
+  
+.sticky-nav ul li:hover {
+    background-color: ghostwhite;
+}
+ 
+.sticky-nav ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 15px;
+}
