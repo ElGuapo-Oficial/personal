@@ -1,48 +1,18 @@
+import { useState, useEffect } from 'react';
 import VisibleWrapper from '../hocs/VisibleWrapper';
 import '../styles/Experience.css'
 
-type ExperienceItemProps = {
-    item: {
-      id: number;
-      company: string;
-      years: string;
-      stack: string[];
-    };
-    isActive: boolean;
+type ExperienceDataProps = {
+    id: number;
+    company: string;
+    years: string;
+    stack: string[];
   };
 
-const experience = [
-    {
-        id: 1,
-        company: "PayPal",
-        years: "7",
-        stack: ["asd", "aseadg", "ergser", "sdsdcg"]
-    },
-    {
-        id: 2,
-        company: "Google",
-        years: "4",
-        stack: ["asd", "aseadg", "ergser", "sdsdcg"]
-    },
-    {
-        id: 3,
-        company: "Apple",
-        years: "5",
-        stack: ["asd", "aseadg", "ergser", "sdsdcg"]
-    },
-    {
-        id: 4,
-        company: "Meta",
-        years: "9",
-        stack: ["asd", "aseadg", "ergser", "sdsdcg"]
-    },
-    {
-        id: 5,
-        company: "Netflix",
-        years: "4",
-        stack: ["asd", "aseadg", "ergser", "sdsdcg"]
-    }
-];
+type ExperienceItemProps = {
+    item: ExperienceDataProps;
+    isActive: boolean;
+};
 
 const ExperienceItem: React.FC<ExperienceItemProps> = ({item, isActive}) => {
     return (
@@ -53,6 +23,27 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({item, isActive}) => {
 }
 
 const Experience: React.FC = () => {
+    const [experience, setExperience] = useState<ExperienceDataProps[]>([])
+
+    useEffect(() => {
+        const getExperienceData = async() => {
+            try {
+                const experienceDataResponse = await fetch('https://myprofile-server-ochre.vercel.app/info');
+                if (!experienceDataResponse.ok) {
+                    throw new Error('Error on API Call');
+                }
+                const experienceData = await experienceDataResponse.json();
+                console.log(experienceData);
+                setExperience(experienceData);
+            } catch (error) {
+                console.log("The following error happend: ", error);
+            }
+        }
+
+        getExperienceData();
+    }, [])
+
+
     return (
         <div id='experience' className="experience">
             { experience.map(item => 
